@@ -1,0 +1,38 @@
+name: Docker publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build_docker_image:
+    permissions:
+      contents: read
+      packages: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Get Version Tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker Login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & push MCP
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/scai-bio/internal-mcp-server:latest
+            ghcr.io/scai-bio/internal-mcp-server:${{ steps.version.outputs.VERSION }}
