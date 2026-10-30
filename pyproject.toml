@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build>=0.13.4,<0.14"]
+requires = ["uv_build>=0.13.6,<0.14"]
 build-backend = "uv_build"
 
 [project]
@@ -9,4 +9,4 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.14,<3.15"
 authors = [{ name = "Mehmet Can Ay", email = "mehmet.ay@scai.fraunhofer.de" }]
-dependencies = ["fastmcp>=4.1.2"]
+dependencies = ["fastmcp>=4.1.4"]
