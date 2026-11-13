@@ -9,4 +9,4 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.14,<3.15"
 authors = [{ name = "Mehmet Can Ay", email = "mehmet.ay@scai.fraunhofer.de" }]
-dependencies = ["fastmcp>=4.1.6"]
+dependencies = ["fastmcp>=4.1.7"]
