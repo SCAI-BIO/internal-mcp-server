@@ -3,13 +3,13 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/.github/workflows"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     labels:
       - "ci/cd"
   - package-ecosystem: "uv"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     groups:
       all-dependencies:
         patterns:
@@ -20,7 +20,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     labels:
       - "chore"
       - "docker"
